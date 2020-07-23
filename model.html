@@ -1,0 +1,67 @@
+<script type="text/javascript">
+  RED.nodes.registerType("model", {
+    category: "Cloud Annotations",
+    color: "#78a9ff",
+    icon: "image.svg",
+    defaults: {
+      name: { value: "" },
+      path: { value: "model_web" },
+    },
+    inputs: 1,
+    outputs: 1,
+    inputLabels: "binary buffer | string",
+    outputLabels: "prediction list",
+    label: () => {
+      return this.name || "model";
+    },
+  });
+</script>
+
+<script type="text/x-red" data-template-name="model">
+  <div class="form-row">
+    <label for="node-input-path"><i class="fa fa-file"></i> Model path</label>
+    <input type="text" id="node-input-path" placeholder="Path">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+
+  <div class="form-tips"><span>Tip: The model path should be an absolute path, otherwise it will be relative to the working directory of the Node-RED process.</span></div>
+</script>
+
+<script type="text/x-red" data-help-name="model">
+      <p>Use Cloud Annotations models in Node-RED.</p>
+
+      <h3>Inputs</h3>
+          <dl class="message-properties">
+              <dt>payload
+                  <span class="property-type">binary buffer | string</span>
+              </dt>
+              <dd>a buffer holding the image or a string path to the image.</dd>
+          </dl>
+
+       <h3>Outputs</h3>
+
+                   <dl class="message-properties">
+                       <dt>payload <span class="property-type">list</span></dt>
+                       <dd>a list of predictions. Example:<br/>
+                         <code>
+  [<br/>
+  &nbsp;&nbsp;{<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;bbox: [x, y, width, height],<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;label: string,<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;score: float<br/>
+  &nbsp;&nbsp;},<br/>
+  &nbsp;&nbsp;...<br/>
+  ]
+                       </code>
+                      </dd>
+                   </dl>
+
+      <h3>References</h3>
+          <ul>
+              <li><a href="https://github.com/cloud-annotations/node-red-contrib-cloud-annotations">GitHub</a> - the nodes github repository</li>
+          </ul>
+</script>
