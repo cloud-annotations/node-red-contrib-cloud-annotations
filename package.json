@@ -2,6 +2,15 @@
   "name": "node-red-contrib-cloud-annotations",
   "version": "0.0.1",
   "description": "Node-RED nodes for making predictions with Cloud Annotations models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloud-annotations/node-red-contrib-cloud-annotations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cloud-annotations/node-red-contrib-cloud-annotations/issues"
+  },
+  "homepage": "https://github.com/cloud-annotations/node-red-contrib-cloud-annotations",
+  "author": "Nick Bourdakos",
   "license": "MIT",
   "scripts": {
     "start": "nodemon  --ext html,htm,js,json --exec \"node-red\""
